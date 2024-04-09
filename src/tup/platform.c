@@ -62,10 +62,12 @@ const char *tup_arch = "arm64";
 const char *tup_arch = "riscv64";
 #elif (__riscv || __riscv__) && __riscv_xlen == 32
 const char *tup_arch = "riscv32";
-#elif __loongarch64
-const char *tup_arch = "loongarch64";
 #elif __s390x__
 const char *tup_arch = "s390x";
+#elif __loongarch__ && __loongarch_grlen == 32
+const char *tup_arch = "loongarch32";
+#elif __loongarch__ && __loongarch_grlen == 64
+const char *tup_arch = "loongarch64";
 #else
 #error Unsupported cpu architecture. Please add support in tup/platform.c
 #endif
